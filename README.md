@@ -161,7 +161,7 @@ git push origin v3.0.0
 ```
 📂 Ver código en: Release/ [código release](./.github/workflows/release.yaml)
 
- [código release](./imagenes/cicd-release.png)
+ [Workflows Release Build & Push Image](./imagenes/cicd-release.png)
 
 - La imagen se publica como: (**docker.io/ramon1743/liberando-productos-practica-final-ramon-meza:3.0.0)**
 
