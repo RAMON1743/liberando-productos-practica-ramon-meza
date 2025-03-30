@@ -120,13 +120,14 @@ python3 src/app.py
 📂 Ver código en: src/ https://github.com/RAMON1743/liberando-productos-practica-ramon-meza/tree/main/src/application
 
 
-imgen endpoint
+[Endpoints](./imagenes/endpoint.png)
 
 
 📂 Ver tests en: tests/ https://github.com/RAMON1743/liberando-productos-practica-ramon-meza/tree/main/src/tests
 
 
-imagen del test unitario pasado
+[Test Unitario](./imagenes/test_unitaria.png)
+
 
 ## CI/CD (GitHub Actions)
 
@@ -142,6 +143,7 @@ Su función es:
   
 📂 Ver código en: test/ [código de tests](./.github/workflows/test.yaml)
 
+[Workflows Test](./imagenes/cicd-test.png)
 
 ### Build & Push (Release): github/workflows/release.yaml
 Este segundo workflow se ejecuta automáticamente cuando se crea un tag con formato vX.X.X (por ejemplo: v3.0.0). Sus pasos:
@@ -159,7 +161,7 @@ Para lanzar este workflow, simplemente se corre:
 git tag v3.0.0
 git push origin v3.0.0
 ```
-📂 Ver código en: Release/ [código release](./.github/workflows/release.yaml)
+📂 Ver código en: Release/ [Código release](./.github/workflows/release.yaml)
 
  [Workflows Release Build & Push Image](./imagenes/cicd-release.png)
 
