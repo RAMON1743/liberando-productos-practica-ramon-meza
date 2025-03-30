@@ -5,7 +5,7 @@ PIP = $(VENV)/bin/pip
 # Variables for DockerHub
 DOCKERHUB_USERNAME ?= ramon1743
 IMAGE_REGISTRY_DOCKERHUB ?= docker.io
-IMAGE_NAME ?= liberando-productos-practica-final-ramon-meza
+IMAGE_NAME ?= liberando-productos-practica-ramon-meza
 VERSION ?= develop
 
 # Full image tags
