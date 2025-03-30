@@ -181,6 +181,7 @@ helm upgrade --install monitoring prometheus-community/kube-prometheus-stack \
 
 
 ## Probar las alertas
+
 Se puede simular una alerta (por ejemplo de alto uso de CPU) aplicando:
 
 ```bash
@@ -188,6 +189,16 @@ Se puede simular una alerta (por ejemplo de alto uso de CPU) aplicando:
 kubectl apply -f k8s/cpu-test-app.yaml
 
 ```
+
+
+**Acceso vía navegador**
+
+Está expuesto en el clúster de Kubernetes en el puerto 9090, por lo tanto, puedes acceder desde tu navegador con:
+
+```bash
+http://localhost:9090
+```
+
 
 
 **Imagen de prometheus**
@@ -210,12 +221,164 @@ Se ha creado un dashboard desde cero en Grafana, el cual muestra:
 
 Archivo JSON [Archivo Json](https://fastapi.tiangolo.com/)
 
+
+
 **Acceso a Grafana**
+
 Grafana está expuesto en el clúster de Kubernetes en el puerto 30000, por lo tanto, puedes acceder desde tu navegador con:
 
+
+
 ```bash
-http://localhost:30000
+http://localhost:3000
 ```
+
+
+
+**Login Grafana**
+
+
+- Usuario: **admin**
+
+- Contraseña: **prom-operator**
+
+
+
+
+## Estructura del proyecto
+
+
+```bash
+
+LIBERANDO-PRODUCTOS-PRACTICA-RAMON-MEZA/
+├── .github/                        # Workflows de CI/CD
+│   └── workflows/
+│       ├── release.yaml
+│       └── test.yaml
+├── .pytest_cache/
+│   ├── v/
+│   ├── .gitignore
+│   └── CACHEDIR.TAG
+├── README.md
+├── helm-values/                     # Configuración para Prometheus stack
+│   ├── additional-rules.yaml
+│   ├── alertmanager-config.yaml
+│   ├── alertmanager-secret.yaml
+│   ├── kube-state-values.yaml
+│   └── prometheus-persistence.yaml
+├── htmlcov/
+├── k8s/                            # Manifiestos de Kubernetes
+│   ├── cpu-test-app.yaml
+│   ├── deployment.yaml
+│   ├── fastapi-servicemonitor.yaml
+│   └── service.yaml
+├── src/                            # Código fuente de la app
+├── venv/
+├── .coverage
+├── .gitignore
+├── Dockerfile
+├── grafana-fastapi-dashboard.json  # Dashboard exportado a JSON
+├── Makefile
+├── pytest.ini
+├── README.md
+└── requirements.txt
+
+```
+
+
+
+## Cómo reproducir paso a paso
+
+
+**Clona el repo y entra en la carpeta:**
+
+```bash
+
+git clone git@github.com:RAMON1743/liberando-productos-practica-ramon-meza.git
+
+
+**Iniciamos el cluster Minikube:**
+
+```bash
+minikube start --cpus=4 --memory=6g --disk-size=20g
+
+
+**Habilita addons:**
+
+```bash
+minikube addons enable metrics-server
+minikube addons enable ingress
+
+## Validar que todo está funcionando correctamente
+
+**Verificar pods**
+
+```bash
+kubectl get pods
+```
+
+**Validar de que todos los pods estén en estado Running, tanto de la app como del stack monitoring.**
+
+**Verificar servicios**
+
+```bash
+kubectl get svc
+```
+
+**Confirma que existen y están expuestos los servicios:**
+
+- Monitoring-grafana
+- Monitoring-prometheus
+- Monitoring-alertmanager
+- Fastapi
+
+  
+**Verificar targets en Prometheus**
+
+En Prometheus (una vez abierto), ve a Status > Targets y revisa que tu ServiceMonitor esté UP.
+
+
+## Acceder a los servicios vía navegador
+
+```bash
+kubectl port-forward svc/monitoring-grafana 3000:80
+kubectl port-forward svc/monitoring-kube-prometheus-prometheus 9090
+kubectl port-forward svc/monitoring-kube-prometheus-alertmanager 9093
+```
+
+**Accede en el navegador a:**
+
+- Grafana: http://localhost:3000
+
+- Prometheus: http://localhost:9090
+
+- Alertmanager: http://localhost:9093
+
+
+Despliega Prometheus + Grafana: (ver comandos en sección anterior)
+
+
+
+
+Despliega la aplicación y ServiceMonitor
+
+Lanza carga:
+
+curl http://localhost:8081/
+curl http://localhost:8081/bye
+curl http://localhost:8081/metrics
+
+
+Accede a Grafana:
+
+
+kubectl port-forward svc/monitoring-grafana 3000
+→ http://localhost:3000
+
+
+
+
+
 
 El proyecto inicial es un servidor que realiza lo siguiente:
 
