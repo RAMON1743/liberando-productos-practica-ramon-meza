@@ -117,13 +117,13 @@ python3 src/app.py
 
 - Incluye tests con Pytest y cobertura:
 
-📂 [Ver código App/](./src/application/app.py)
+📂 [Ver código App](./src/application/app.py)
 
 
 [Endpoints](./imagenes/endpoint.png)
 
 
-📂 [Ver código Test/](./src/tests/app_test.py)
+📂 [Ver código Test](./src/tests/app_test.py)
 
 
 [Test Unitario](./imagenes/test_unitaria.png)
@@ -141,7 +141,7 @@ Su función es:
 - Generar un informe de cobertura de código.
 - Validar que el código subido cumple con los estándares.
   
-📂 Ver código en: test/ [código de tests](./.github/workflows/test.yaml)
+📂 Ver código en Test [código de tests](./.github/workflows/test.yaml)
 
 [Workflows Test](./imagenes/cicd-test.png)
 
@@ -161,14 +161,13 @@ Para lanzar este workflow, simplemente se corre:
 git tag v3.0.0
 git push origin v3.0.0
 ```
-📂 Ver código en: Release/ [Código release](./.github/workflows/release.yaml)
+📂 Ver código en: Release [Código release](./.github/workflows/release.yaml)
 
  [Workflows Release Build & Push Image](./imagenes/cicd-release.png)
 
 - La imagen se publica como: (**docker.io/ramon1743/liberando-productos-practica-final-ramon-meza:3.0.0)**
 
-
-imagen Dockerhub
+[Repositorio DockerHub](./imagenes/repo-imagendh.png)
 
 
 **Esta implementación cumple con los requisitos de:**
@@ -352,7 +351,7 @@ http://localhost:9090
 
 
 
-[Alerta CPU /](./imagenes/test-cpu.png)
+[Alerta CPU ](./imagenes/test-cpu.png)
 
 
 
@@ -445,7 +444,7 @@ minikube addons enable ingress
 kubectl get pods
 ```
 
-
+[Pods](./imagenes/pods.png)
 
 
 **Validar de que todos los pods estén en estado Running, tanto de la app como del stack monitoring.**
