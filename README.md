@@ -352,7 +352,7 @@ http://localhost:9090
 
 
 
-[Alerta CPU /](.imagenes/test-cpu.png)
+[Alerta CPU /](./imagenes/test-cpu.png)
 
 
 
