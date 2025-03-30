@@ -331,11 +331,14 @@ LIBERANDO-PRODUCTOS-PRACTICA-RAMON-MEZA/
 
 git clone git@github.com:RAMON1743/liberando-productos-practica-ramon-meza.git
 
+```
 
 **Iniciamos el cluster Minikube:**
 
 ```bash
 minikube start --cpus=4 --memory=6g --disk-size=20g
+
+```
 
 
 **Habilita addons:**
@@ -343,6 +346,8 @@ minikube start --cpus=4 --memory=6g --disk-size=20g
 ```bash
 minikube addons enable metrics-server
 minikube addons enable ingress
+
+```
 
 ## Validar que todo está funcionando correctamente
 
@@ -379,36 +384,23 @@ En Prometheus (una vez abierto), ve a Status > Targets y revisa que tu ServiceMo
 kubectl port-forward svc/monitoring-grafana 3000:80
 kubectl port-forward svc/monitoring-kube-prometheus-prometheus 9090
 kubectl port-forward svc/monitoring-kube-prometheus-alertmanager 9093
+
 ```
 
-**Accede en el navegador a:**
 
-- Grafana: http://localhost:3000
+**Accede en el navegador:**
 
-- Prometheus: http://localhost:9090
+- **Grafana**: http://localhost:3000
 
-- Alertmanager: http://localhost:9093
+- **Prometheus**: http://localhost:9090
 
-
-Despliega Prometheus + Grafana: (ver comandos en sección anterior)
+- **Alertmanager**: http://localhost:9093
 
 
 
 
-Despliega la aplicación y ServiceMonitor
-
-Lanza carga:
-
-curl http://localhost:8081/
-curl http://localhost:8081/bye
-curl http://localhost:8081/metrics
 
 
-Accede a Grafana:
-
-
-kubectl port-forward svc/monitoring-grafana 3000
-→ http://localhost:3000
 
 
 
