@@ -118,7 +118,7 @@ python3 src/app.py
 - Incluye tests con Pytest y cobertura:
 
 📂 Ver código en: src/ https://github.com/RAMON1743/liberando-productos-practica-ramon-meza/tree/main/src/application
-
+[Ver código en: src/](./src/application/app.py)
 
 [Endpoints](./imagenes/endpoint.png)
 
