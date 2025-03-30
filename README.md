@@ -7,13 +7,15 @@ Incluye pruebas automatizadas, métricas personalizadas, alertas configuradas y 
 - Código para el nuevo endpoint y tests unitario
 
 - CI/CD (GitHub Actions)
-
+  
+- Construcción de la imagen Docker
+  
 - Despliegue y monitorización
-
+  
 - Dashboard Grafana (JSON)
-
+  
 - Estructura del proyecto
-
+  
 - Cómo reproducir paso a paso
 
 
@@ -81,6 +83,39 @@ imagen Dockerhub
 - Publicación en un registry válido (DockerHub)
 
 
+
+## Construcción de la imagen Docker
+
+**Construir la imagen**
+
+```sh
+docker build -t ramon1743/simple-server:0.0.2 
+```
+
+Esto genera una imagen Docker etiquetada como simple-server:0.0.2 basada en el Dockerfile del proyecto.
+
+
+
+Subimo la imagen a DockerHu
+
+```sh
+docker push ramon1743/simple-server:0.0.2
+```
+
+**Este paso requiere que estés logueado previamente en DockerHub:**
+
+```sh
+docker login
+```
+
+**Probamos localmente la imagen Docker**
+
+```sh
+docker run -d -p 8000:8000 -p 8081:8081 --name simple-server ramon1743/simple-server:0.0.2
+
+```
+
+Permite lenvantar la app en segundo plano con los puertos necesarios para acceder a los endpoints (/) y a las métricas Prometheus (/metrics).
 
 ## Despliegue y Monitorización
 Se ha desplegado un entorno completo de observabilidad y monitorización basado en Prometheus y Grafana, cumpliendo con los requisitos de la práctica. También se ha realizado el despliegue de la aplicación en Kubernetes y se han integrado métricas personalizadas y alertas.
