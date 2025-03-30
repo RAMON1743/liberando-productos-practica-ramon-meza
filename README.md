@@ -123,7 +123,7 @@ python3 src/app.py
 [Endpoints](./imagenes/endpoint.png)
 
 
-📂 Ver tests en: tests/ https://github.com/RAMON1743/liberando-productos-practica-ramon-meza/tree/main/src/tests
+📂 [Ver código Test/](./src/tests/app_test.py)
 
 
 [Test Unitario](./imagenes/test_unitaria.png)
@@ -311,10 +311,7 @@ Las alertas se integran con Slack mediante un **webhook configurado en alertmana
 - Esto permite que todas las alertas activas y resueltas lleguen directamente a #ramon-prometheus-alarms
 
 
-
-**imagen de las alerta slack****
-
-
+[Canla de alerta](./imagenes/slack.png)
 
 
 
@@ -355,9 +352,7 @@ http://localhost:9090
 
 
 
-**Imagen de prometheus**
-
-
+[Alerta CPU /](.imagenes/test-cpu.png)
 
 
 
@@ -377,7 +372,7 @@ Se ha creado un dashboard desde cero en Grafana, el cual muestra:
 
 - Número de veces que la aplicación ha arrancado.
 
-Archivo JSON [Archivo Json](https://fastapi.tiangolo.com/)
+Archivo JSON [grafana-fastapi-dashboard](./grafana-fastapi-dashboard.json)
 
 
 
@@ -404,7 +399,7 @@ http://localhost:3000
 - Contraseña: **prom-operator**
 
 
-
+[Dashboard-Grafana/](./imagenes/metricas.png)
 
 
 
@@ -461,7 +456,7 @@ kubectl get pods
 kubectl get svc
 ```
 
-
+[Servicios/](./imagenes/svc.png)
 
 
 **Confirma que existen y están expuestos los servicios:**
