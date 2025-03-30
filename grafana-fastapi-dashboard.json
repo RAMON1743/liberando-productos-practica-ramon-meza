@@ -1,0 +1,121 @@
+{
+    "id": 1,
+    "type": "gauge",
+    "title": "Panel Title",
+    "gridPos": {
+      "x": 0,
+      "y": 0,
+      "h": 8,
+      "w": 12
+    },
+    "fieldConfig": {
+      "defaults": {
+        "mappings": [],
+        "thresholds": {
+          "mode": "absolute",
+          "steps": [
+            {
+              "color": "green",
+              "value": null
+            },
+            {
+              "color": "red",
+              "value": 80
+            }
+          ]
+        },
+        "color": {
+          "mode": "thresholds"
+        }
+      },
+      "overrides": []
+    },
+    "pluginVersion": "11.5.2",
+    "targets": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "disableTextWrap": false,
+        "editorMode": "builder",
+        "expr": "main_requests_total{endpoint=\"http\"}",
+        "fullMetaSearch": false,
+        "includeNullMetadata": true,
+        "legendFormat": "__auto",
+        "range": true,
+        "refId": "A",
+        "useBackend": false
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "disableTextWrap": false,
+        "editorMode": "builder",
+        "expr": "healthcheck_requests_total{endpoint=\"http\"}",
+        "fullMetaSearch": false,
+        "hide": false,
+        "includeNullMetadata": true,
+        "instant": false,
+        "legendFormat": "__auto",
+        "range": true,
+        "refId": "B",
+        "useBackend": false
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "disableTextWrap": false,
+        "editorMode": "builder",
+        "expr": "bye_requests_total{endpoint=\"http\"}",
+        "fullMetaSearch": false,
+        "hide": false,
+        "includeNullMetadata": true,
+        "instant": false,
+        "legendFormat": "__auto",
+        "range": true,
+        "refId": "C",
+        "useBackend": false
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "disableTextWrap": false,
+        "editorMode": "builder",
+        "expr": "fastapi_app_starts_total{endpoint=\"http\"}",
+        "fullMetaSearch": false,
+        "hide": false,
+        "includeNullMetadata": true,
+        "instant": false,
+        "legendFormat": "__auto",
+        "range": true,
+        "refId": "D",
+        "useBackend": false
+      }
+    ],
+    "datasource": {
+      "type": "prometheus",
+      "uid": "prometheus"
+    },
+    "options": {
+      "reduceOptions": {
+        "values": false,
+        "calcs": [
+          "lastNotNull"
+        ],
+        "fields": ""
+      },
+      "orientation": "auto",
+      "showThresholdLabels": false,
+      "showThresholdMarkers": true,
+      "sizing": "auto",
+      "minVizWidth": 75,
+      "minVizHeight": 75
+    }
+  }

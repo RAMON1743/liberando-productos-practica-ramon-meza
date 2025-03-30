@@ -1,0 +1,13 @@
+additionalPrometheusRules:
+  - name: test-alert-rules
+    groups:
+      - name: test.rules
+        rules:
+          - alert: TestSlackAlert
+            expr: vector(1)
+            for: 10s
+            labels:
+              severity: critical
+            annotations:
+              summary: "Alerta de prueba"
+              description: "Esta es una alerta de prueba enviada desde Prometheus a Slack."
