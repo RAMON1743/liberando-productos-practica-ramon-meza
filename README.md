@@ -145,6 +145,8 @@ Su función es:
 
 [Workflows Test](./imagenes/cicd-test.png)
 
+[Reporte de cobertura](./imagenes/reporte.png)
+
 ### Build & Push (Release): github/workflows/release.yaml
 Este segundo workflow se ejecuta automáticamente cuando se crea un tag con formato vX.X.X (por ejemplo: v3.0.0). Sus pasos:
 - Construye una imagen Docker de la aplicación.
